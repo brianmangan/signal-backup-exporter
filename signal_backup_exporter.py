@@ -154,12 +154,13 @@ def process_statement(db,statement):
                 if not ext:
                     ext = 'unk'
                 _PARTS_TO_MIME[rec[19]] = rec[3], ext
-        db.execute(statement.statement, rec)
-        db.commit()
+        # db.execute(statement.statement, rec)
+        # db.commit()
     else:
         if 'sqlite' not in statement.statement:
-            db.execute(statement.statement)
-            db.commit()
+            None
+            # db.execute(statement.statement)
+            # db.commit()
 
 
 def get_frame(bfile):
