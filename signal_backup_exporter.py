@@ -133,7 +133,10 @@ def decrypt_frame(bfile, ofile, length, with_iv=False):
     our_mac = our_mac[:10]  # trim to 1st 10 bytes
     their_asset_mac = bfile.read(10)
 
-    assert hmac.compare_digest(our_mac, their_asset_mac)
+    try:
+        assert hmac.compare_digest(our_mac, their_asset_mac)
+    except AssertionError as ex:
+        print('There was a hash map compare issue. not sure what that means, contact dev')
 
 
 _PARTS_TO_MIME = {}
