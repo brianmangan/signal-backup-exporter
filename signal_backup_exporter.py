@@ -182,12 +182,13 @@ def get_frame(bfile):
 
 
 def process_attachment(bfile, length, path):
-    try:
-        with open(f'{path}', 'wb') as ofile:
-            decrypt_frame(bfile, ofile, length, with_iv=True)
-    except Exception as ex:
-        os.remove(path)
-        raise
+    return
+    # try:
+    #     with open(f'{path}', 'wb') as ofile:
+    #         decrypt_frame(bfile, ofile, length, with_iv=True)
+    # except Exception as ex:
+    #     os.remove(path)
+    #     raise
 
 
 process_avatar = process_attachment
